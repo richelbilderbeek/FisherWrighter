@@ -6,7 +6,6 @@
 
 #include "container.h"
 #include "fileio.h"
-#include "richelbilderbeekprogram.h"
 #include "testtimer.h"
 #include "trace.h"
 #include "beast.h"
@@ -77,24 +76,16 @@ ribi::Help ribi::fw::MenuDialog::GetHelp() const noexcept
   );
 }
 
-boost::shared_ptr<const ribi::Program> ribi::fw::MenuDialog::GetProgram() const noexcept
-{
-  boost::shared_ptr<const ribi::Program> p {
-    new ribi::ProgramFisherWrighter
-  };
-  assert(p);
-  return p;
-}
-
 std::string ribi::fw::MenuDialog::GetVersion() const noexcept
 {
-  return "1.0";
+  return "2.0";
 }
 
 std::vector<std::string> ribi::fw::MenuDialog::GetVersionHistory() const noexcept
 {
   return {
     "2015-06-13: version 1.0: started versioning",
+    "2016-01-10: version 2.0: moved to own GitHub",
   };
 }
 

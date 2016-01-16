@@ -4,9 +4,9 @@
 
 #include <QFile>
 
-#include "helper.h"
-#include "parameters.h"
-#include "simulation.h"
+#include "fisherwrighterhelper.h"
+#include "fisherwrighterparameters.h"
+#include "fisherwrightersimulation.h"
 
 #include "newickutils.h"
 
@@ -18,7 +18,7 @@ int main()
   const int n_generations{10};
   const int pop_size{1000};
   const int seed{42};
-  const Parameters parameters(
+  const ribi::fw::Parameters parameters(
     dna_length,
     mutation_rate,
     n_generations,
@@ -27,7 +27,7 @@ int main()
   );
 
   //2) Run simulation
-  Simulation simulation(parameters);
+  ribi::fw::Simulation simulation(parameters);
   //Loop n_generations
   //const int n_generations{parameters.GetNumberOfGenerations()};
   for (int i=0; i!=n_generations; ++i)
@@ -45,6 +45,6 @@ int main()
   std::cout << pedigree << std::endl;
 
   //Display as phylogeny
-  NewickUtils().Display(pedigree);
+  ribi::NewickUtils().Display(pedigree);
 }
 
